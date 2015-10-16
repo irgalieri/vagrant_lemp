@@ -11,7 +11,7 @@ GPL-3.0
 ```
    $> git clone git@github.com:irgalieri/vagrant_lemp.git
 ```
-* Exec vagrant u
+* Exec vagrant up
 ```
    $> vagrant up
 ```
