@@ -15,8 +15,12 @@ GPL-3.0
 ```
    $> vagrant up
 ```
-* And enjoy the right
+* Test got to http://localhost:8080/index.php
+
+## Mysql
+* Host localhost:3306
+* user: root
+* pwd: vagrant
 
 ## TODO
-* PUT Mysql Server
 * Add Xdebug

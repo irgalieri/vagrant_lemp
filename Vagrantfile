@@ -23,6 +23,7 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -2056,8 +2057,13 @@ ldap.max_links = -1
 ; End:
 
 EOF
+     debconf-set-selections <<< 'mysql-server mysql-server/root_password password vagrant'
+     debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password vagrant'
+     apt-get install -y mysql-server mysql-client
+
      systemctl restart php5-fpm
      systemctl restart nginx
+
      update-rc.d nginx defaults
      update-rc.d php5-fpm defaults
   SHELL
